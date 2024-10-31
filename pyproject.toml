@@ -8,7 +8,7 @@ authors = [
 
 dependencies = [
     "pandas", "numpy",
-    "black",
+    "black", "isort",
     "ruff",
     "yamllint",
     "nbqa",
