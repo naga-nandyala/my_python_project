@@ -1,0 +1,49 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.11'
+      addToPath: true
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install .[ci]
+    displayName: 'Install CI dependencies'
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install -g markdownlint-cli
+    displayName: 'Install markdownlint-cli globally'
+
+  - script: |
+      black --check .
+    displayName: 'Run black'
+
+  - script: |
+      ruff check .
+    displayName: 'Run ruff'
+
+  - script: |
+      isort --check-only .
+    displayName: 'Run isort check'
+
+  - script: |
+      yamllint -c yamllint.yaml .
+    displayName: 'Run yamllint'
+
+  - script: |
+      markdownlint -c markdownlint.yml **/*.md
+    displayName: 'Run markdownlint'
+
+  - script: |
+      pytest
+    displayName: 'Run pytest'

@@ -1,0 +1,76 @@
+[project]
+name = "my_python_project"
+version = "0.1.0"
+description = "A Python project with formatting and linting tools"
+authors = [
+    { name="Your Name", email="your.email@example.com" }
+]
+
+dependencies = [
+    "pandas", "numpy",
+    "black",
+    "ruff",
+    "yamllint",
+    "nbqa",
+    "pytest"
+]
+
+
+[project.optional-dependencies]
+dev = ["my_python_project", "ipykernel", "pre-commit"]
+ci = ["my_python_project"]
+cd = ["my_python_project", "azure-devops"]
+
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | build
+    | dist
+    | \.pyc
+    | __pycache__
+    | \.DS_Store
+    | \.cache
+)/
+'''
+
+[tool.ruff]
+lint.select = ["E", "F", "B"]
+# lint.ignore = ["E501"]
+lint.fixable = ["E", "F", "B"]
+line-length = 120
+exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+
+
+[tool.nbqa]
+line-length = 120
+exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+ignore = ["E501"]
+[tool.nbqa.black]
+[tool.nbqa.ruff]
+
+[tool.yamllint]
+config-file = "yamllint.yaml"
+exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+
+# [tool.markdownlint]
+# config-file = "markdownlint.yml"
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# include-package-data = true`
+packages = ["e2e_samples", "single_tech_samples"]
