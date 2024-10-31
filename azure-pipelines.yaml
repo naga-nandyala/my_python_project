@@ -45,5 +45,9 @@ steps:
     displayName: 'Run markdownlint'
 
   - script: |
+      python -c "import sys; print('\n'.join(sys.path))"
+    displayName: 'Check Python Path'
+
+  - script: |
       pytest
     displayName: 'Run pytest'
