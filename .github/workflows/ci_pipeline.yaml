@@ -33,28 +33,31 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .[ci]
 
-      - name: Set up Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: Analyze all pre-commit checks
+        run: pre-commit run --all-files
 
-      - name: Install markdownlint-cli
-        run: npm install -g markdownlint-cli
+      # - name: Set up Node.js 16.x
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16'
 
-      - name: Run black
-        run: black --check .
+      # - name: Install markdownlint-cli
+      #   run: npm install -g markdownlint-cli
 
-      - name: Run ruff
-        run: ruff check .
+      # - name: Run black
+      #   run: black --check .
 
-      - name: Run isort
-        run: isort --check-only .
+      # - name: Run ruff
+      #   run: ruff check .
 
-      - name: Run yamllint
-        run: yamllint -c yamllint.yaml .
+      # - name: Run isort
+      #   run: isort --check-only .
 
-      - name: Run markdownlint
-        run: markdownlint -c markdownlint.yml **/*.md
+      # - name: Run yamllint
+      #   run: yamllint -c yamllint.yaml .
+
+      # - name: Run markdownlint
+      #   run: markdownlint -c markdownlint.yml **/*.md
 
       - name: Run pytest
         run: pytest

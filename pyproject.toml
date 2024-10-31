@@ -7,19 +7,22 @@ authors = [
 ]
 
 dependencies = [
-    "pandas", "numpy",
-    "black", "isort",
+    "pandas",
+    "numpy",
+    "black",
+    "isort",
     "ruff",
     "yamllint",
     "nbqa",
-    "pytest"
+    "pytest",
+    "pre-commit"
 ]
 
 
 [project.optional-dependencies]
-dev = ["my_python_project", "ipykernel", "pre-commit"]
+dev = ["my_python_project", "ipykernel"]
 ci = ["my_python_project"]
-cd = ["my_python_project", "azure-devops"]
+cd = ["my_python_project"]
 
 
 [tool.isort]
