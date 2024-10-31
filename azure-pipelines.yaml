@@ -45,14 +45,5 @@ steps:
     displayName: 'Run markdownlint'
 
   - script: |
-      python -c "import sys; import os; print('\n'.join(sys.path)); sys.path.append(os.getcwd()); print('\n'.join(sys.path));"
-    displayName: 'Check Python Path'
-
-  - script: |
-      pip list
-    displayName: 'Check pip list'
-
-  - script: |
-      PYTHONPATH=$PYTHONPATH:$(pwd); pytest
-      python -c "sys.path.append(os.getcwd())"
+      pytest
     displayName: 'Run pytest'
