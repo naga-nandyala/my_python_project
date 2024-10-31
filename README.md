@@ -27,6 +27,7 @@ pre-commit install
 ```unix
 pre-commit clean
 pre-commit autoupdate
+git commit -m "skip precommit" --no-verify
 ```
 
 ## observations
