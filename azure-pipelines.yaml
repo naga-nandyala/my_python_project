@@ -12,7 +12,7 @@ steps:
 
   - script: |
       python -m pip install --upgrade pip
-      pip install .[ci]
+      pip install -e .[ci]
     displayName: 'Install CI dependencies'
 
   - task: NodeTool@0
@@ -48,7 +48,11 @@ steps:
       python -c "import sys; import os; print('\n'.join(sys.path)); sys.path.append(os.getcwd()); print('\n'.join(sys.path));"
     displayName: 'Check Python Path'
 
-  # - script: |
-  #     PYTHONPATH=$PYTHONPATH:$(pwd); pytest
-  #     python -c "sys.path.append(os.getcwd())"
-  #   displayName: 'Run pytest'
+  - script: |
+      pip list
+    displayName: 'Check pip list'
+
+  - script: |
+      PYTHONPATH=$PYTHONPATH:$(pwd); pytest
+      python -c "sys.path.append(os.getcwd())"
+    displayName: 'Run pytest'
