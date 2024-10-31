@@ -29,18 +29,18 @@ line_length = 120
 [tool.black]
 line-length = 120
 target-version = ['py311']
-exclude = '''
-/(
-    \.git
-    | \.venv
-    | build
-    | dist
-    | \.pyc
-    | __pycache__
-    | \.DS_Store
-    | \.cache
-)/
-'''
+# exclude = '''
+# /(
+#     \.git
+#     | \.venv
+#     | build
+#     | dist
+#     | \.pyc
+#     | __pycache__
+#     | \.DS_Store
+#     | \.cache
+# )/
+# '''
 
 [tool.ruff]
 lint.select = ["E", "F", "B"]
@@ -48,6 +48,7 @@ lint.select = ["E", "F", "B"]
 lint.fixable = ["E", "F", "B"]
 line-length = 120
 exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+
 
 
 [tool.nbqa]
@@ -61,8 +62,6 @@ ignore = ["E501"]
 config-file = "yamllint.yaml"
 exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
 
-# [tool.markdownlint]
-# config-file = "markdownlint.yml"
 
 [tool.pytest.ini_options]
 addopts = "-ra"
