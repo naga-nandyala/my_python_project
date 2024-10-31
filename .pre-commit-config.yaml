@@ -1,4 +1,4 @@
-exclude: 'docs/conf.py|docs/site/*'
+# exclude: 'docs/conf.py|docs/site/*'
 
 repos:
   # General checks for style
@@ -18,7 +18,7 @@ repos:
 
 # Uncomment and configure isort if needed
   - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
 

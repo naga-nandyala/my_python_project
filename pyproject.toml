@@ -47,20 +47,20 @@ lint.select = ["E", "F", "B"]
 # lint.ignore = ["E501"]
 lint.fixable = ["E", "F", "B"]
 line-length = 120
-exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
 
 
 
 [tool.nbqa]
 line-length = 120
-exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
 ignore = ["E501"]
 [tool.nbqa.black]
 [tool.nbqa.ruff]
 
 [tool.yamllint]
 config-file = "yamllint.yaml"
-exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
 
 
 [tool.pytest.ini_options]
