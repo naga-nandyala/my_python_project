@@ -1,16 +1,7 @@
-a = 1
+# print sys.path and then append cwd to the sys.path then print again
+import os
+import sys
 
-
-def test():
-    print("Hello World!")
-
-
-def test2():
-    print("Hello World!")
-
-
-def test3():
-    print("hello")
-
-
-_ = (1).add(2)
+print(sys.path)
+sys.path.append(os.getcwd())
+print(sys.path)
