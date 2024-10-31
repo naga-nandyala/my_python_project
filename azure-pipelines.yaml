@@ -49,5 +49,5 @@ steps:
     displayName: 'Check Python Path'
 
   - script: |
-      pytest
+      PYTHONPATH=$PYTHONPATH:$(pwd); pytest
     displayName: 'Run pytest'
