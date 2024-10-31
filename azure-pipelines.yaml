@@ -22,7 +22,7 @@ steps:
 
   - script: |
       npm install -g markdownlint-cli
-    displayName: 'Install markdownlint-cli globally'
+    displayName: 'Install markdownlint-cli'
 
   - script: |
       black --check .
@@ -34,7 +34,7 @@ steps:
 
   - script: |
       isort --check-only .
-    displayName: 'Run isort check'
+    displayName: 'Run isort'
 
   - script: |
       yamllint -c yamllint.yaml .
