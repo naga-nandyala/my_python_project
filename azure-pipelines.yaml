@@ -11,14 +11,14 @@ pool:
 
 strategy:
   matrix:
-    python-version: ['3.9', '3.11']
+    pythonVersion: ['3.9', '3.11']  # No hyphen here in variable name
 
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '${{ matrix.python-version }}'  # Correctly reference matrix variable
+      versionSpec: '$(pythonVersion)'  # Directly use $(pythonVersion)
       addToPath: true
-    displayName: 'Set up Python ${{ matrix.python-version }}'  # Update displayName as well
+    displayName: 'Set up Python $(pythonVersion)'
 
   - script: |
       python -m pip install --upgrade pip
