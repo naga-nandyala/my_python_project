@@ -32,25 +32,20 @@ line_length = 120
 [tool.black]
 line-length = 120
 target-version = ['py311']
-# exclude = '''
-# /(
-#     \.git
-#     | \.venv
-#     | build
-#     | dist
-#     | \.pyc
-#     | __pycache__
-#     | \.DS_Store
-#     | \.cache
-# )/
-# '''
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | old_and_archived_samples
+)/
+'''
 
 [tool.ruff]
 lint.select = ["E", "F", "B"]
 # lint.ignore = ["E501"]
 lint.fixable = ["E", "F", "B"]
 line-length = 120
-# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+exclude = ["old_and_archived_samples/*"]
 
 
 
@@ -61,13 +56,17 @@ ignore = ["E501"]
 [tool.nbqa.black]
 [tool.nbqa.ruff]
 
-[tool.yamllint]
-config-file = "yamllint.yaml"
-# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
+# not supported yet
+# [tool.yamllint]
+# config-file = "yamllint.yaml"
 
+# not supported yet
+# [tool.markdownlint]
+# config = "markdownlint.yml"
 
 [tool.pytest.ini_options]
 addopts = "-ra"
+norecursedirs = ["old_and_archived_samples"]
 
 [build-system]
 requires = ["setuptools", "wheel"]
