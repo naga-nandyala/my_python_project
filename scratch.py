@@ -3,5 +3,6 @@ import os
 import pandas as pd
 import sys
 
+print(os.getcwd())
 sys.path.append(os.getcwd())
 print(sys.path)
