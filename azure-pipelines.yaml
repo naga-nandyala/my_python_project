@@ -9,7 +9,7 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
-  strategy:
+strategy:
   matrix:
     Python39:
       python.version: '3.9.x'
@@ -19,9 +19,8 @@ pool:
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '$(pythonVersion)'  # Directly use $(pythonVersion)
-      addToPath: true
-    displayName: 'Set up Python $(pythonVersion)'
+      versionSpec: '$(python.version)'
+    displayName: 'Set up Python $(python.version)'
 
   - script: |
       python -m pip install --upgrade pip
