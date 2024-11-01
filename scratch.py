@@ -1,4 +1,4 @@
-# print sys.path and then append cwd to the sys.path then print again
+# print sys.path and then append cwd to the sys.path then print againxx
 import os
 import sys
 
