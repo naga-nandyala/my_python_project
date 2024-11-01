@@ -32,6 +32,7 @@ exclude = '''
 /(
     \.git
     | \.venv
+    | \.ipynb$
     | old_and_archived_samples
 )/
 '''
@@ -41,14 +42,11 @@ lint.select = ["E", "F", "B"]
 # lint.ignore = ["E501"]
 lint.fixable = ["E", "F", "B"]
 line-length = 120
-exclude = ["old_and_archived_samples/*"]
+exclude = ["*.ipynb", "old_and_archived_samples/*"]
 
 
 [tool.nbqa]
 line-length = 120
-ignore = ["E501"]
-[tool.nbqa.black]
-[tool.nbqa.ruff]
 
 # not supported yet
 # [tool.yamllint]
