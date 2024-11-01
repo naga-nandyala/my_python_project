@@ -15,12 +15,14 @@ pip install .
 
 ```python
 # to install development dependencies (contributor)
-pip install .[dev]
+pip install --upgrade pip
+pip install -e .[dev]
 ```
 
 ## some other commands
 
 ```unix
+pre-commit install
 pre-commit clean
 pre-commit autoupdate
 git commit -m "skip precommit" --no-verify
