@@ -2,27 +2,23 @@
 name = "my_python_project"
 version = "0.1.0"
 description = "A Python project with formatting and linting tools"
-authors = [
-    { name="Your Name", email="your.email@example.com" }
-]
+authors = [{ name = "Your Name", email = "your.email@example.com" }]
 
-dependencies = [
-    "pandas",
-    "numpy",
+dependencies = ["pandas", "numpy"]
+
+[project.optional-dependencies]
+ci = [
+    "my_python_project",
     "black",
     "isort",
     "ruff",
     "yamllint",
     "nbqa",
     "pytest",
-    "pre-commit"
+    "pre-commit",
 ]
-
-
-[project.optional-dependencies]
-dev = ["my_python_project", "ipykernel"]
-ci = ["my_python_project"]
-cd = ["my_python_project"]
+dev = ["my_python_project[ci]", "ipykernel"]
+cd = ["my_python_project[ci]"]
 
 
 [tool.isort]
@@ -48,10 +44,8 @@ line-length = 120
 exclude = ["old_and_archived_samples/*"]
 
 
-
 [tool.nbqa]
 line-length = 120
-# exclude = ["build", "dist", ".venv", "*.pyc", "__pycache__", ".DS_Store", "node_modules"]
 ignore = ["E501"]
 [tool.nbqa.black]
 [tool.nbqa.ruff]
@@ -73,5 +67,4 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-# include-package-data = true`
 packages = ["e2e_samples", "single_tech_samples"]

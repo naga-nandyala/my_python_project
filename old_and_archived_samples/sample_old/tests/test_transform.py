@@ -1,4 +1,4 @@
-from single_tech_samples.sample_azuresql.src.transform import add
+from old_and_archived_samples.sample_old.src.transform import add
 
 
 def test_add():
