@@ -9,17 +9,13 @@ python -m venv .venv
 source .venv/bin/activate
 # to install default dependencies
 pip install .
-# to install development dependencies
-pip install .[dev]
-# to install npm dependencies(e.g markdownlint)
-npm install -g markdownlint-cli
 ```
 
 ## contributor mode
 
 ```python
-pip install -e [.dev]
-pre-commit install
+# to install development dependencies (contributor)
+pip install .[dev]
 ```
 
 ## some other commands
@@ -29,11 +25,3 @@ pre-commit clean
 pre-commit autoupdate
 git commit -m "skip precommit" --no-verify
 ```
-
-## observations
-
-- do we run these locally (vscode) ?
-- import statements inside tests (using os.sys )
-- no ruff, black, isort, notebook formatting, linting tools
-- yamllint settings only in github actions. can we not centralize the config for both github and azdo
--

@@ -1,0 +1,7 @@
+## observations
+
+- do we run these locally (vscode) ?
+- import statements inside tests (using os.sys )
+- no ruff, black, isort, notebook formatting, linting tools
+- yamllint settings only in github actions. can we not centralize the config for both github and azdo
+-
