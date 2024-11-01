@@ -15,34 +15,13 @@ steps:
       pip install -e .[ci]
     displayName: 'Install CI dependencies'
 
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '16.x'
-    displayName: 'Install Node.js'
+  - script: |
+      pre-commit install-hooks
+    displayName: 'Install pre-commit hooks'
 
   - script: |
-      npm install -g markdownlint-cli
-    displayName: 'Install markdownlint-cli'
-
-  - script: |
-      black --check .
-    displayName: 'Run black'
-
-  - script: |
-      ruff check .
-    displayName: 'Run ruff'
-
-  - script: |
-      isort --check-only .
-    displayName: 'Run isort'
-
-  - script: |
-      yamllint -c yamllint.yaml .
-    displayName: 'Run yamllint'
-
-  - script: |
-      markdownlint -c markdownlint.yml **/*.md
-    displayName: 'Run markdownlint'
+      pre-commit run --all-files
+    displayName: 'Run pre-commit hooks'
 
   - script: |
       pytest
