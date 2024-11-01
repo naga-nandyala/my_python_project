@@ -16,9 +16,6 @@ jobs:
       matrix:
         python-version: [3.9, 3.11]
 
-    env:
-      MODE: "dev"
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -35,29 +32,6 @@ jobs:
 
       - name: Analyze all pre-commit checks
         run: pre-commit run --all-files
-
-      # - name: Set up Node.js 16.x
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16'
-
-      # - name: Install markdownlint-cli
-      #   run: npm install -g markdownlint-cli
-
-      # - name: Run black
-      #   run: black --check .
-
-      # - name: Run ruff
-      #   run: ruff check .
-
-      # - name: Run isort
-      #   run: isort --check-only .
-
-      # - name: Run yamllint
-      #   run: yamllint -c yamllint.yaml .
-
-      # - name: Run markdownlint
-      #   run: markdownlint -c markdownlint.yml **/*.md
 
       - name: Run pytest
         run: pytest

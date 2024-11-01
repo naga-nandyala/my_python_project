@@ -1,27 +1,33 @@
 trigger:
   - main
 
+pr:
+  branches:
+    include:
+      - main
+
 pool:
   vmImage: 'ubuntu-latest'
+
+strategy:
+  matrix:
+    python-version: ['3.9', '3.11']
 
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.11'
+      versionSpec: '$(python-version)'
       addToPath: true
+    displayName: 'Set up Python $(python-version)'
 
   - script: |
       python -m pip install --upgrade pip
       pip install -e .[ci]
-    displayName: 'Install CI dependencies'
-
-  - script: |
-      pre-commit install-hooks
-    displayName: 'Install pre-commit hooks'
+    displayName: 'Install Python dependencies'
 
   - script: |
       pre-commit run --all-files
-    displayName: 'Run pre-commit hooks'
+    displayName: 'Analyze all pre-commit checks'
 
   - script: |
       pytest
