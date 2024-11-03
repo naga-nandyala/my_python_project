@@ -33,18 +33,18 @@ repos:
       - id: isort
         name: isort (sorting imports)
 
-  - repo: https://github.com/psf/black
-    rev: 24.10.0
-    hooks:
-      - id: black
-        name: black (formatting python code)
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.7.1
     hooks:
       - id: ruff
         args: [--fix]
         name: ruff (linting python code)
+
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+        name: black (formatting python code)
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.35.1
@@ -62,8 +62,8 @@ repos:
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.0
     hooks:
-      - id: nbqa-black
-      - id: nbqa-ruff
-        args: ["--fix"]
       - id: nbqa-isort
         args: ["--float-to-top"]
+      - id: nbqa-ruff
+        args: ["--fix"]
+      - id: nbqa-black

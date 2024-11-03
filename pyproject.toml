@@ -27,8 +27,8 @@ code_qa = ["black", "isort", "ruff", "yamllint", "nbqa", "pre-commit"]
 test = ["pytest", "pytest-cov"]
 release = ["build", "twine"]
 
-ci = ["my_python_project[test]", "pre-commit"]
 dev = ["my_python_project[code_qa, test, release]" , "ipykernel"]
+ci = ["my_python_project[test]", "pre-commit"]
 cd = ["my_python_project[release]"]
 
 
