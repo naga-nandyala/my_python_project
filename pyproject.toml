@@ -4,21 +4,32 @@ version = "0.1.0"
 description = "A Python project with formatting and linting tools"
 authors = [{ name = "Your Name", email = "your.email@example.com" }]
 
-dependencies = ["pandas", "numpy"]
+# dependencies = ["pandas", "numpy"]
+
+# [project.optional-dependencies]
+# release = ["build", "twine"]
+# test = ["pytest", "pytest-cov"]
+# ci = [
+#     "my_python_project",
+#     "black",
+#     "isort",
+#     "ruff",
+#     "yamllint",
+#     "nbqa",
+#     "pre-commit",
+#     "my_python_project[test]"
+# ]
+# dev = ["my_python_project[ci, test, release]" , "ipykernel"]
+# cd = ["my_python_project[ci]"]
 
 [project.optional-dependencies]
-ci = [
-    "my_python_project",
-    "black",
-    "isort",
-    "ruff",
-    "yamllint",
-    "nbqa",
-    "pytest",
-    "pre-commit",
-]
-dev = ["my_python_project[ci]", "ipykernel"]
-cd = ["my_python_project[ci]"]
+code_qa = ["black", "isort", "ruff", "yamllint", "nbqa", "pre-commit"]
+test = ["pytest", "pytest-cov"]
+release = ["build", "twine"]
+
+ci = ["my_python_project[code_qa, test]"]
+dev = ["my_python_project[code_qa, test, release]" , "ipykernel"]
+cd = ["my_python_project[release]"]
 
 
 [tool.isort]
