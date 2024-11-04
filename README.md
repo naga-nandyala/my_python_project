@@ -1,4 +1,4 @@
-# Sample Project with different formatting and linting tools
+# Sample Project with different formatting and linting tools--- dummy line
 
 ## initialize
 
