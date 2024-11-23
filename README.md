@@ -26,4 +26,5 @@ pre-commit install
 pre-commit clean
 pre-commit autoupdate
 git commit -m "skip precommit" --no-verify
+pre-commit run all
 ```
